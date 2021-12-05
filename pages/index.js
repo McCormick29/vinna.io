@@ -1,8 +1,11 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import useFetch from "react-fetch-hook"
 
 export default function Home() {
+  const {data} = useFetch(`${process.env.NEXT_PUBLIC_API_URL}?module=account&action=tokentx&address=0xb70ac54e863d8F173e0C0EA9fE2848831bFDfA5B&&page=1&offset=100&startblock=0&endblock=27025780&sort=asc&apikey=${process.env.NEXT_PUBLIC_API_KEY}`);
+  console.log(data);
   return (
     <div className={styles.container}>
       <Head>
