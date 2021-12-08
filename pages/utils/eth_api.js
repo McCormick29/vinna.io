@@ -35,6 +35,8 @@ export const getAccountTokenHolds = (account, token) => {
   console.log(data);
 };
 
+// TO DO: Max Supply endpoint for token data
+// This isn't updated yet with the correct endpoint, just was the start of it. So ignore that it's a duplicate 
 export const getMaxSupply = ({ token }) => {
   const { data } = getData(
     `${process.env.NEXT_PUBLIC_API_URL}?module=account&action=tokentx&address=${address}&&page=1&offset=100&startblock=0&endblock=27025780&sort=desc&apikey=${process.env.NEXT_PUBLIC_API_KEY}`
