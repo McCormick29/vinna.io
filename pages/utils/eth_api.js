@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import axios from "axios";
 
 const getData = (url) => {
@@ -15,7 +15,8 @@ const getData = (url) => {
   };
 
   React.useEffect(() => {
-    fetchData();
+    // The timeout is to prevent the api from hitting a max limit requests on some endpoints
+    setTimeout(() => fetchData(), 1000);
   }, []);
   return { data };
 };
@@ -35,11 +36,10 @@ export const getAccountTokenHolds = (account, token) => {
     `${process.env.NEXT_PUBLIC_API_URL}?module=account&action=tokenbalance&contractaddress=${token}&address=${account}&tag=latest&apikey=${process.env.NEXT_PUBLIC_API_KEY}`
   );
   return data?.result;
-  console.log(data);
 };
 
 // TO DO: Max Supply endpoint for token data
-// This isn't updated yet with the correct endpoint, just was the start of it. So ignore that it's a duplicate 
+// This isn't updated yet with the correct endpoint, just was the start of it. So ignore that it's a duplicate
 export const getMaxSupply = ({ token }) => {
   const { data } = getData(
     `${process.env.NEXT_PUBLIC_API_URL}?module=account&action=tokentx&address=${address}&&page=1&offset=100&startblock=0&endblock=27025780&sort=desc&apikey=${process.env.NEXT_PUBLIC_API_KEY}`
