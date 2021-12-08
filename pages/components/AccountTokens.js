@@ -6,7 +6,6 @@ export const AccountTokens = ({
   tokenAddress = "0xb70ac54e863d8F173e0C0EA9fE2848831bFDfA5B",
 }) => {
   const tokenArr = getAccountTokenTransfers(tokenAddress);
-  console.log(tokenArr);
   const [tokens, setTokens] = React.useState(undefined);
 
   const getTokenRows = (array) => {
@@ -33,7 +32,7 @@ export const AccountTokens = ({
       {tokens !== undefined ? (
         <div>
           {tokens?.map((token) => (
-            <div>
+            <div key={token.tokenAddress}>
               <div>Token: {token.tokenName}</div>
               <div>Contract: {token.tokenAddress}</div>
               <AmountOfToken
