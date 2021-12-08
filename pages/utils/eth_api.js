@@ -20,6 +20,7 @@ const getData = (url) => {
   return { data };
 };
 
+// This endpoint gets all of the ERC20 transfers for an ether address
 export const getAccountTokenTransfers = (account) => {
   const { data } = getData(
     `${process.env.NEXT_PUBLIC_API_URL}?module=account&action=tokentx&address=${account}&page=1&offset=100&startblock=0&endblock=27025780&sort=asc&apikey=${process.env.NEXT_PUBLIC_API_KEY}`
@@ -27,6 +28,8 @@ export const getAccountTokenTransfers = (account) => {
   return data?.result;
 };
 
+// This endpoint requires the address and the token address
+// This will return the amount of tokens the address is holding for the current token
 export const getAccountTokenHolds = (account, token) => {
   const { data } = getData(
     `${process.env.NEXT_PUBLIC_API_URL}?module=account&action=tokenbalance&contractaddress=${token}&address=${account}&tag=latest&apikey=${process.env.NEXT_PUBLIC_API_KEY}`
