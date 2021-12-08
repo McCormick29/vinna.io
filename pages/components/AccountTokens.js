@@ -1,9 +1,5 @@
 import React from "react";
-// import { getAccountTokenBalance } from '../utils/eth_api';
-import {
-  getAccountTokenTransfers,
-  getAccountTokenHolds,
-} from "../utils/eth_api";
+import { getAccountTokenTransfers } from "../utils/eth_api";
 import { AmountOfToken } from "./AmountOfToken";
 
 export const AccountTokens = ({
