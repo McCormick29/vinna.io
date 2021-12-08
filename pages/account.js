@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { AccountTokens } from "./components/AccountTokens";
+import { AccountTokens } from "./components/TokenList";
 import { AppContext } from "./utils/app_contex";
 
 export default function Account() {
@@ -7,6 +7,7 @@ export default function Account() {
 
   return (
     <div>
+    {ethAccount}
       <AccountTokens account={ethAccount} />
     </div>
   );

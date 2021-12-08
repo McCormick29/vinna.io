@@ -1,6 +1,7 @@
 import React from "react";
 import { getAccountTokenTransfers } from "../utils/eth_api";
 import { AmountOfToken } from "./AmountOfToken";
+import { css } from "@emotion/css";
 
 export const AccountTokens = ({
   tokenAddress = "0xb70ac54e863d8F173e0C0EA9fE2848831bFDfA5B",
@@ -26,20 +27,27 @@ export const AccountTokens = ({
     } else getTokenRows(tokenArr);
   }, [tokenArr]);
 
+  const getStyles = css({
+    display: 'grid',
+    gridTemplateColumns: 'repeat(3, 1fr)',
+    "& > .account-info-contianer": {},
+    "& > .token-container": {
+      display: 'grid',
+      gridTemplateRows: 'repeat(4, 1fr)',
+    },
+  });
+
   return (
-    <div>
-      Accounts Unique Tokens
+    <div className={getStyles}>
       {tokens !== undefined ? (
         <div>
           {tokens?.map((token) => (
-            <div key={token.tokenAddress}>
-              <div>Token: {token.tokenName}</div>
-              <div>Contract: {token.tokenAddress}</div>
+            <div className="token-container" key={token.tokenAddress}>
               <AmountOfToken
                 account={tokenAddress}
                 token={token.tokenAddress}
+                tokenName={token.tokenName}
               />
-              {/* <div>Amount: {getAccountTokenHolds(tokenAddress, token.tokenAddress)}</div> */}
             </div>
           ))}
         </div>
