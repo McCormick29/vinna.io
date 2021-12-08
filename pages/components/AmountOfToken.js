@@ -1,19 +1,19 @@
-import React from 'react'
-import { getAccountTokenHolds } from '../utils/eth_api';
+import React from "react";
+import { getAccountTokenHolds } from "../utils/eth_api";
+import { css } from "@emotion/css";
 
-export const AmountOfToken = ({account, token}) => {
-    console.log(account, token)
-const value = getAccountTokenHolds(account, token)
-    return (
-        <div className='value'>
-           Amount: {value}
-           <style jsx>{`
-        .value {
-          margin-left: 40px;
-          color: purple;
-        }
-      `}</style>
-        </div>
-    )
-}
+export const AmountOfToken = ({ account, token }) => {
+  const getStyles = css({
+    "& .amount-value": {
+      marginLeft: 40,
+      color: "purple",
+    },
+  });
+  const value = getAccountTokenHolds(account, token);
 
+  return (
+    <div className={getStyles}>
+      <span className="amount-value">Amount: {value}</span>
+    </div>
+  );
+};
