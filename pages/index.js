@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { Popover, Transition } from "@headlessui/react";
 import { ChevronRightIcon } from "@heroicons/react/solid";
@@ -24,6 +25,7 @@ export default function Home() {
                     <span className="sr-only">Workflow</span>
                     <img
                       className="h-8 w-auto sm:h-10"
+                      // Once logo is finished will add here
                       // src="https://tailwindui.com/img/logos/workflow-mark-teal-200-cyan-400.svg"
                       alt=""
                     />
@@ -48,12 +50,6 @@ export default function Home() {
                 </div>
               </div>
               <div className="hidden md:flex md:items-center md:space-x-6">
-                {/* <a
-                  href="#"
-                  className="text-base font-medium text-white hover:text-gray-300"
-                >
-                  Log in
-                </a> */}
                 <a
                   href="#"
                   className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700"
@@ -110,14 +106,14 @@ export default function Home() {
                       href="#"
                       className="block text-center w-full py-3 px-4 rounded-md shadow bg-gradient-to-r from-teal-500 to-cyan-600 text-white font-medium hover:from-teal-600 hover:to-cyan-700"
                     >
-                      Start free trial
+                      Join Waitlist
                     </a>
                   </div>
                   <div className="mt-6 px-5">
                     <p className="text-center text-base font-medium text-gray-500">
                       Existing customer?{" "}
                       <a href="#" className="text-gray-900 hover:underline">
-                        Login
+                        Coming Soon
                       </a>
                     </p>
                   </div>
@@ -136,7 +132,7 @@ export default function Home() {
                       <span className="block">Crypto Kunnusta <span className='italic text-sm'>(knowledge)</span> is</span>
                     </h1>
                     <p className="text-base text-gray-300 sm:text-xl lg:text-lg xl:text-xl">
-                      how you Vinna! We believe that knowledge is power by providing data to find trends, track whales in a way never seen before!
+                      how you Vinna! We believe that knowledge is power. Vinna.io provides data and trends about whales and crypto in a way that empowers you to vinna(win).
                     </p>
                     <div className="mt-10 sm:mt-12">
                       <form
@@ -167,9 +163,11 @@ export default function Home() {
                         <p className="mt-3 text-sm pr-4 text-gray-300 sm:mt-4">
                           Vinna is a work in progress, timelines will be announced soon! Subscribe or follow our twitter for updates!
                         </p>
-                        <a href="#" className="font-medium text-white">
+                        <Link href="termsofservice">
+                          <a className="font-medium text-white">
                             terms of service
-                          </a>
+                            </a>
+                          </Link>
                       </form>
                     </div>
                   </div>
