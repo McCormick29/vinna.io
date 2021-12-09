@@ -2,25 +2,14 @@
 
 To Dev:
 `npm install`
+`add a .env.local file with your apy key see .env.local.example`
 `npm run dev`
 
 Built with:
 
 - Nextjs
-- Nodejs
+- Storybookjs
 - Vercel
 
-API:
-api/
-
-APP:
-app/
-
-APP ROUTES:
-app/pages
-
-SSR:
-app/pages/api
-
-TO DO LIST:
-- Link coming soon
+Project Managment:
+- https://www.notion.so/93ff964d644e453a838ad1a1b22fbcde?v=f15f810ebc5e44a4a0710023892d8f90
