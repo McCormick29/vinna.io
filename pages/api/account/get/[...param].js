@@ -1,9 +1,4 @@
-import Cors from 'cors';
 import axios from "axios";
-
-const cors = Cors({
-    methods: ['GET', 'HEAD']
-})
 
 const getUniqueTokens = (array) => {
     const tokens = array?.map((token) => ({

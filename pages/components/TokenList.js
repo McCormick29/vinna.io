@@ -1,5 +1,4 @@
 import React from "react";
-import { getAccountTokenTransfers } from "../utils/eth_api";
 import { AmountOfToken } from "./AmountOfToken";
 import { css } from "@emotion/css";
 import axios from "axios";

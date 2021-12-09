@@ -7,7 +7,7 @@ export default function Account() {
   const router = useRouter()
   const { account } = router.query
   const { setEthAccount } = useContext(AppContext);
-  console.log(account)
+
   // This is probably overkill but I'm leaving it for the moment
   React.useEffect(() => {
     setEthAccount(account)
