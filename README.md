@@ -5,6 +5,16 @@ To Dev:
 `add a .env.local file with your apy key see .env.local.example`
 `npm run dev`
 
+Study Materials:
+- Nextjs
+- https://nextjs.org/docs/getting-started
+
+- Storybookjs
+- https://storybook.js.org/docs/react/get-started/introduction
+
+- Etherscan API
+- https://docs.etherscan.io/
+
 Built with:
 
 - Nextjs
