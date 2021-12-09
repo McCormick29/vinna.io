@@ -14,7 +14,7 @@ const getUniqueTokens = (array) => {
 export default async function handler(req, res) {
     try{
     const { param } = req.query
-    const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}?module=account&action=tokentx&address=${param}&page=1&offset=100&startblock=0&endblock=27025780&sort=asc&apikey=${process.env.NEXT_PUBLIC_API_KEY}`)
+    const response = await axios.get(`${process.env.ETH_API_URL}?module=account&action=tokentx&address=${param}&page=1&offset=100&startblock=0&endblock=27025780&sort=asc&apikey=${process.env.ETH_API_KEY}`)
     const uniqueTokens = getUniqueTokens(response.data.result)
     res.status(200).json(uniqueTokens)
   } catch (err) {
