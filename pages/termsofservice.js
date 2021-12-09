@@ -2,26 +2,36 @@ import React from 'react'
 
 function termsofservice() {
     return (
-        <div className='p-8 text-white'>
-Terms and Conditions
+        <div className='p-8 text-white flex'>
+    <div>
+<div className='w-full text-center mb-8'>
+
+<span className='text-2xl align-middle'>Terms and Conditions</span>
+</div>
 
  
 
+<span className='text-lg'>
 Agreement between User and https://vinna.io/
 
-Welcome to https://vinna.io/. The https://vinna.io/ website (the "Site") is comprised of various web pages operated by Vinna.io ("Vinna"). https://vinna.io/ is offered to you conditioned on your acceptance without modification of the terms, conditions, and notices contained herein (the "Terms"). Your use of https://vinna.io/ constitutes your agreement to all such Terms. Please read these terms carefully, and keep a copy of them for your reference.
-
+</span>
+<span>
+{`Welcome to https://vinna.io/. The https://vinna.io/ website (the "Site") is comprised of various web pages operated by Vinna.io ("Vinna"). https://vinna.io/ is offered to you conditioned on your acceptance without modification of the terms, conditions, and notices contained herein (the "Terms"). Your use of https://vinna.io/ constitutes your agreement to all such Terms. Please read these terms carefully, and keep a copy of them for your reference.`}
+</span>
  
-
+ <span>
 https://vinna.io/ is a News and Information Site.
+ </span>
 
- 
 
+
+
+<span>
 To bring data from blockchain and cryptocurrencies, along with crypto wallets to provide data and trends.
-
+</span>
  
 
-Electronic Communications
+{` Electronic Communications
 
 Visiting https://vinna.io/ or sending emails to Vinna constitutes electronic communications. You consent to receive electronic communications and you agree that all agreements, notices, disclosures and other communications that we provide to you electronically, via email and on the Site, satisfy any legal requirement that such communications be in writing.
 
@@ -183,12 +193,14 @@ Telephone number:
 
  
 
-Effective as of December 09, 2021
+Effective as of December 09, 2021`}
 
  
-
+</div>
         </div>
     )
 }
 
 export default termsofservice
+
+
