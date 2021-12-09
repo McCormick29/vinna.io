@@ -1,9 +1,9 @@
 #### BOLT CHASER (name to be decided)
 
 To Dev:
-`npm install`
-`add a .env.local file with your apy key see .env.local.example`
-`npm run dev`
+- `npm install`
+- `add a .env.local file with your apy key see .env.local.example`
+- `npm run dev`
 
 Study Materials:
 - Nextjs
