@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useRouter } from 'next/router';
-import { AccountTokens } from "../components/TokenList";
+import { AccountTokens } from "../../components/AccountTokens";
 import { AppContext } from "../utils/app_contex";
 
 export default function Account() {
