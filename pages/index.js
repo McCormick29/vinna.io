@@ -1,15 +1,37 @@
 import React from "react";
 import Link from "next/link";
+import axios from "axios";
+
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { Popover, Transition } from "@headlessui/react";
-import { ChevronRightIcon } from "@heroicons/react/solid";
+// import { ChevronRightIcon } from "@heroicons/react/solid";
 
-const navigation = [
-  { name: 'Vinna.io', href: '#' },
-
-]
+const navigation = [{ name: "Vinna.io", href: "#" }];
 
 export default function Home() {
+  const [showWarning, setShowWarning] = React.useState(false);
+
+  const addSubscriberClick = async (event) => {
+    event.preventDefault()
+    if (event.target.email.value !== '') {
+      // const postResponse = await axios(
+      //   `/api/maillist/subscribe/?email=${event.target.email.value}`
+      // )
+      const res = await fetch(`/api/maillist/subscribe/?email=${event.target.email.value}`, {
+        body: JSON.stringify({
+          email: event.target.email.value
+        }),
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        },
+        method: 'POST'
+      })
+      console.log(res)
+    } else {
+      setShowWarning(true);
+    }
+  };
+
   return (
     <div className="bg-zinc-900 h-screen">
       <div className="relative overflow-hidden">
@@ -129,14 +151,19 @@ export default function Home() {
                 <div className="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 sm:text-center lg:px-0 lg:text-left lg:flex lg:items-center">
                   <div className="lg:py-24">
                     <h1 className="mt-4 text-4xl tracking-tight font-extrabold text-white sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
-                      <span className="block">Crypto Kunnusta <span className='italic text-sm'>(knowledge)</span> is</span>
+                      <span className="block">
+                        Crypto Kunnusta{" "}
+                        <span className="italic text-sm">(knowledge)</span> is
+                      </span>
                     </h1>
                     <p className="text-base text-gray-300 sm:text-xl lg:text-lg xl:text-xl">
-                      how you Vinna! We believe that knowledge is power. Vinna.io provides data and trends about whales and crypto in a way that empowers you to vinna(win).
+                      how you Vinna! We believe that knowledge is power.
+                      Vinna.io provides data and trends about whales and crypto
+                      in a way that empowers you to vinna(win).
                     </p>
                     <div className="mt-10 sm:mt-12">
                       <form
-                        action="#"
+                        onSubmit={addSubscriberClick}
                         className="sm:max-w-xl sm:mx-auto lg:mx-0"
                       >
                         <div className="sm:flex">
@@ -147,6 +174,7 @@ export default function Home() {
                             <input
                               id="email"
                               type="email"
+                              // onChange={(value = e.target.value) => setEmail(value)}
                               placeholder="Enter your email"
                               className="block w-full px-4 py-3 rounded-md border-0 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900"
                             />
@@ -161,13 +189,15 @@ export default function Home() {
                           </div>
                         </div>
                         <p className="mt-3 text-sm pr-4 text-gray-300 sm:mt-4">
-                          Vinna is a work in progress, timelines will be announced soon! Subscribe or follow our twitter for updates!
+                          Vinna is a work in progress, timelines will be
+                          announced soon! Subscribe or follow our twitter for
+                          updates!
                         </p>
                         <Link href="termsofservice">
                           <a className="font-medium text-white">
                             terms of service
-                            </a>
-                          </Link>
+                          </a>
+                        </Link>
                       </form>
                     </div>
                   </div>
