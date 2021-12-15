@@ -9,28 +9,32 @@ import { Popover, Transition } from "@headlessui/react";
 const navigation = [{ name: "Vinna.io", href: "#" }];
 
 export default function Home() {
-  const [showWarning, setShowWarning] = React.useState(false);
 
-  const addSubscriberClick = async (event) => {
-    event.preventDefault()
-    if (event.target.email.value !== '') {
-      // const postResponse = await axios(
-      //   `/api/maillist/subscribe/?email=${event.target.email.value}`
-      // )
-      const res = await fetch(`/api/maillist/subscribe/?email=${event.target.email.value}`, {
-        body: JSON.stringify({
-          email: event.target.email.value
-        }),
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        },
-        method: 'POST'
-      })
-      console.log(res)
+  const [email, setEmail] = React.useState('');
+  const [error, setError] = React.useState('');
+  const [success, setSuccess] = React.useState('');
+  
+  const subscribeMe = async (event) => {
+    event.preventDefault();
+  
+    const res = await fetch("/api/subscribe", {
+       body: JSON.stringify({ email: email }),
+       headers: { 'Content-Type': 'application/json' },
+       method: "POST",
+    });
+  
+   const { error, message } = await res.json();
+    if (error) {
+       setError(error);
     } else {
-      setShowWarning(true);
+       setSuccess(message);
     }
   };
+  
+  const changeEmail = (event) => {
+   const email = event.target.value;
+   setEmail(email);
+  }
 
   return (
     <div className="bg-zinc-900 h-screen">
@@ -163,7 +167,7 @@ export default function Home() {
                     </p>
                     <div className="mt-10 sm:mt-12">
                       <form
-                        onSubmit={addSubscriberClick}
+                        onSubmit={subscribeMe}
                         className="sm:max-w-xl sm:mx-auto lg:mx-0"
                       >
                         <div className="sm:flex">
@@ -174,6 +178,7 @@ export default function Home() {
                             <input
                               id="email"
                               type="email"
+                              onChange={changeEmail}
                               // onChange={(value = e.target.value) => setEmail(value)}
                               placeholder="Enter your email"
                               className="block w-full px-4 py-3 rounded-md border-0 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900"
