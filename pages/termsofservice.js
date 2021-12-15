@@ -2,7 +2,6 @@ import React from "react";
 
 function termsofservice() {
   return (
-    <div>
       <div className="relative py-16 bg-white overflow-hidden">
         <div className="hidden lg:block lg:absolute lg:inset-y-0 py-12 lg:h-full lg:w-full">
           <div
@@ -468,7 +467,6 @@ function termsofservice() {
           </div>
         </div>
       </div>
-    </div>
   );
 }
 
